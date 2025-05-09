@@ -9,8 +9,9 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # === Source Files === #
 set(SRC_FILES_WITHOUT_MAIN
+    src/geolocation.h
+    src/geolocation.cpp
 )
-
 
 add_executable(${PROJECT_NAME} ${SRC_FILES_WITHOUT_MAIN} src/main.cpp)
 
@@ -41,6 +42,7 @@ enable_testing()
 set(GEO_LOCATION_GTESTS ${PROJECT_NAME}_gtests)
 set(GEO_LOCATION_CALCULATOR_GTEST_FILES
     gtest/gtestmain.cpp
+    gtest/geolocation_gtests.cpp
     ${SRC_FILES_WITHOUT_MAIN}
     ${HELPER_FILES}
 )
