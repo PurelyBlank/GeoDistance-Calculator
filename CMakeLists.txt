@@ -38,7 +38,6 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 # === Test Executables === #
-### WILL NEED CHANGES FOR THIS PROJECT
 set(GEO_LOCATION_GTESTS ${PROJECT_NAME}_gtests)
 set(GEO_LOCATION_CALCULATOR_GTEST_FILES
     gtest/gtestmain.cpp
