@@ -73,3 +73,23 @@ std::pair<std::string, double> getClosestLocation(std::string_view start,
 /*
  * "start" and all locations is of this format "<latitude/direction><space><longitude/direction>"
  */
+std::pair<std::string, double> getFarthestLocation(std::string_view start, 
+                                                   std::unordered_map<std::string, std::string>& locations)
+{
+    const std::pair<double, double>& latLon{ getLatitudeLongitude(start) };
+    double startLat{ latLon.first };
+    double startLon{ latLon.second };
+    
+    std::pair<std::string, double> farthest{};
+    double distance{};
+    for (const auto& locationPair: locations) {
+        const std::pair<double, double>& location{ getLatitudeLongitude(locationPair.first) };
+        double newDistance{ calcGreatCircleDist(startLat, startLon, location.first, location.second) };
+        if (newDistance > distance) {
+            farthest = std::make_pair(locationPair.first, newDistance);
+            distance = newDistance;
+        }
+    }
+
+    return farthest;
+}

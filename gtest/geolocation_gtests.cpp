@@ -57,4 +57,18 @@ namespace {
         EXPECT_EQ("20.8987/N 156.4305/W", closest.first);
         EXPECT_NEAR(2483.3, closest.second, 0.1);
     }
+
+    TEST(GetFarthestLocation, Farthest)
+    {
+        constexpr std::string_view START{ "33.9425/N 118.4081/W" };
+        std::unordered_map<std::string, std::string> locations = {
+            {"20.8987/N 156.4305/W", "Kahului Airport"},
+            {"47.4647/N 8.5492/E", "Zurich Airport"},
+            {"23.4356/S 46.4731/W", "Sao Paolo-Guarulhos International Airport"}
+        };
+
+        std::pair<std::string, double>farthest{ getFarthestLocation(START, locations) };
+        EXPECT_EQ("23.4356/S 46.4731/W", farthest.first);
+        EXPECT_NEAR(6164.8965, farthest.second, 0.1);
+    }
 }
