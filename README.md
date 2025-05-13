@@ -45,5 +45,5 @@ Calculates distances between locations on the surface of the Earth.
 1) Clone this repo
 2) Run `cmake --preset <macos/linux>` // Unfornately, I do not have support for windows as I do not use that OS :(
 3) Run `cmake --build build` inside your project
-4) To run the tests, run `./build/tests`
+4) To run the tests, run `./build/GeoLocation-Calculator_gtests`
 5) Otherwise, run `./build/GeoLocation-Calculator`
